@@ -1,0 +1,129 @@
+---
+import { navLinks, site, whatsappUrl } from "../data/site";
+
+const content = {
+  monogram: "MS",
+  description:
+    "Cosmiatría, estética y estilismo personalizado a domicilio en Lima. Tratamientos faciales, corporales, cejas, pestañas y servicios de imagen diseñados para realzar tu belleza natural.",
+  exploreTitle: "Exploración",
+  hoursTitle: "Atención & Horarios",
+  hoursNote: "Sesiones exclusivamente con reserva previa.",
+  communityTitle: "Comunidad",
+  community: [
+    {
+      label: "WhatsApp Directo",
+      href: whatsappUrl(),
+      icon: "chat",
+      iconClass: "text-secondary",
+      external: true,
+    },
+    {
+      label: "Atención en Lima",
+      href: "https://www.google.com/maps/search/?api=1&query=Lima,+Per%C3%BA",
+      icon: "location_on",
+      iconClass: "text-tertiary",
+      external: true,
+    },
+    {
+      label: "Agendar una cita",
+      href: "#contacto",
+      icon: "calendar_today",
+      iconClass: "text-primary",
+      external: false,
+    },
+  ],
+  whatsappLabel: "WhatsApp",
+  backToTop: "Volver arriba",
+  copyright: `© ${new Date().getFullYear()} ${site.name} Cosmetología y Cuidado Facial. Todos los derechos reservados.`,
+};
+---
+
+<footer class="w-full border-t border-outline-variant/20 bg-surface-container-low pb-16 text-on-surface-variant xl:pb-0">
+  <div class="container-page py-margin-md">
+    <div class="grid grid-cols-1 gap-gutter md:grid-cols-12">
+      <div class="flex flex-col gap-space-sm md:col-span-4">
+        <a href="#inicio" class="flex items-center gap-space-sm">
+          <span class="brand-mark" aria-hidden="true">{content.monogram}</span>
+          <span class="font-headline-sm text-headline-sm text-on-surface">{site.name}</span>
+        </a>
+        <p class="mt-space-xs max-w-sm font-body-sm text-body-sm leading-relaxed text-on-surface-variant">
+          {content.description}
+        </p>
+        <span class="mt-space-xs font-label-sm text-label-sm uppercase tracking-wider text-outline">
+          {site.credential}
+        </span>
+      </div>
+
+      <div class="flex flex-col gap-space-xs md:col-span-3">
+        <h4 class="mb-space-xs font-title-md text-title-md text-on-surface">{content.exploreTitle}</h4>
+        <ul class="flex flex-col gap-space-xs">
+          {
+            navLinks.slice(1).map((link) => (
+              <li class="leading-none">
+                <a
+                  class="inline-block py-1 font-body-sm text-body-sm text-on-surface-variant transition-colors hover:text-on-surface"
+                  href={link.href}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-space-xs md:col-span-3">
+        <h4 class="mb-space-xs font-title-md text-title-md text-on-surface">{content.hoursTitle}</h4>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">{content.hoursNote}</p>
+        <div class="mt-space-xs flex flex-col gap-1 font-body-sm text-body-sm">
+          {
+            site.hours.map((hour) => (
+              <p class="text-on-surface">
+                <span class="text-on-surface-variant">{hour.label}:</span> {hour.value}
+              </p>
+            ))
+          }
+        </div>
+        <a
+          class="mt-space-xs font-label-md text-label-md text-primary transition-colors hover:text-primary-container"
+          href={whatsappUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {content.whatsappLabel}: {site.phoneDisplay}
+        </a>
+      </div>
+
+      <div class="flex flex-col gap-space-xs md:col-span-2">
+        <h4 class="mb-space-xs font-title-md text-title-md text-on-surface">{content.communityTitle}</h4>
+        <div class="flex flex-col gap-space-xs">
+          {
+            content.community.map((item) => (
+              <a
+                class="flex items-center gap-space-xs py-1 font-body-sm text-body-sm text-on-surface-variant transition-colors hover:text-on-surface"
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
+              >
+                <span class={`material-symbols-outlined text-[18px] ${item.iconClass}`} aria-hidden="true">
+                  {item.icon}
+                </span>
+                <span>{item.label}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-margin-md flex flex-col items-center justify-between gap-space-sm border-t border-outline-variant/30 pt-space-md sm:flex-row">
+      <p class="font-body-sm text-body-sm text-outline">{content.copyright}</p>
+      <a
+        href="#inicio"
+        class="font-label-sm text-label-sm uppercase tracking-wider text-outline transition-colors hover:text-primary"
+      >
+        {content.backToTop}
+      </a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,172 @@
+---
+import { site } from "../data/site";
+
+const content = {
+    badges: {
+        availability: "Agenda Abierta • Citas disponibles",
+        location: `A domicilio • ${site.location.city}`,
+        experience: `+${site.experienceYears} Años de Experiencia`,
+    },
+    eyebrow: site.tagline,
+    title: {
+        lead: "Luce una piel radiante y un estilo que",
+        accent: "habla por ti",
+        tail: ".",
+    },
+    description: site.description,
+    actions: {
+        primary: "Agendar Cita",
+        secondary: "Explorar Servicios",
+    },
+    trust: [
+        {
+            icon: "face_retouching_natural",
+            iconClass: "text-primary",
+            title: "Cosmiatría Facial",
+            subtitle: "Cuidado y diagnóstico de tu piel",
+        },
+        {
+            icon: "content_cut",
+            iconClass: "text-secondary",
+            title: "Estilismo Personal",
+            subtitle: "Asesoría de imagen y estilo",
+        },
+        {
+            icon: "home_work",
+            iconClass: "text-tertiary",
+            title: "Atención a Domicilio",
+            subtitle: "En la comodidad de tu hogar",
+        },
+    ],
+    banner: {
+        label: "Cosmiatría & Estilismo",
+        text: "Piel, imagen y bienestar en una sola experiencia",
+    },
+};
+---
+
+<section
+    id="inicio"
+    class="hero-gradient relative flex min-h-[calc(100svh-4rem)] flex-col justify-center overflow-hidden pb-20 pt-12 md:pb-24 md:pt-16 xl:min-h-[calc(100svh-5rem)]"
+>
+    <div
+        class="pointer-events-none absolute -right-20 -top-40 size-162.5 rounded-full bg-primary/10 blur-3xl"
+        aria-hidden="true"
+    ></div>
+    <div
+        class="pointer-events-none absolute -left-24 top-1/2 size-130 rounded-full bg-secondary/10 blur-3xl"
+        aria-hidden="true"
+    ></div>
+    <div
+        class="pointer-events-none absolute -bottom-40 left-1/2 size-155 -translate-x-1/2 rounded-full bg-tertiary-fixed/20 blur-3xl"
+        aria-hidden="true"
+    ></div>
+
+    <div class="container-page relative z-10 w-full">
+        <div class="mx-auto flex max-w-5xl flex-col items-start text-left md:items-center md:text-center">
+            <div class="flex flex-wrap items-center gap-space-sm md:justify-center">
+                <span class="chip bg-secondary-container text-on-secondary-container">
+                    <span
+                        class="material-symbols-outlined text-[14px] text-secondary"
+                        aria-hidden="true"
+                    >
+                        event_available
+                    </span>
+                    {content.badges.availability}
+                </span>
+                <span class="chip border border-outline-variant/30 bg-surface-container-high/70 text-outline">
+                    <span
+                        class="material-symbols-outlined text-[14px] text-tertiary"
+                        aria-hidden="true"
+                    >
+                        location_on
+                    </span>
+                    {content.badges.location}
+                </span>
+                <span class="chip border border-outline-variant/30 bg-surface-container-high/70 text-outline">
+                    <span
+                        class="material-symbols-outlined text-[14px] text-primary"
+                        aria-hidden="true"
+                    >
+                        workspace_premium
+                    </span>
+                    {content.badges.experience}
+                </span>
+            </div>
+
+            <p class="eyebrow mt-space-lg">{content.eyebrow}</p>
+
+            <h1 class="mt-space-xs max-w-4xl text-balance font-display-mobile text-display-mobile tracking-tight text-on-surface md:font-display md:text-[3.5rem] md:leading-[1.08] lg:text-[3.75rem] xl:text-display">
+                {content.title.lead}{" "}
+                <span class="font-normal italic text-primary">
+                    {content.title.accent}
+                </span>
+                {content.title.tail}
+            </h1>
+
+            <p class="mt-space-md max-w-4xl font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
+                {content.description}
+            </p>
+
+            <div class="mt-space-xl flex w-full flex-col gap-space-sm sm:w-auto sm:flex-row sm:items-center sm:justify-center sm:gap-space-md">
+                <a
+                    href="#contacto"
+                    class="btn btn-primary w-full px-7 py-3.5 sm:w-auto"
+                >
+                    {content.actions.primary}
+                    <span
+                        class="material-symbols-outlined text-[18px]"
+                        aria-hidden="true"
+                    >
+                        calendar_add_on
+                    </span>
+                </a>
+                <a
+                    href="#servicios"
+                    class="btn btn-secondary w-full px-7 py-3.5 sm:w-auto"
+                >
+                    {content.actions.secondary}
+                    <span
+                        class="material-symbols-outlined text-[18px]"
+                        aria-hidden="true"
+                    >
+                        arrow_downward
+                    </span>
+                </a>
+            </div>
+
+            <div class="mt-space-xl grid w-full max-w-5xl grid-cols-1 gap-space-sm border-t border-surface-variant/70 pt-space-md sm:grid-cols-3 sm:gap-space-md">
+                {content.trust.map((item) => (
+                    <div class="flex items-center gap-space-sm rounded-xl border border-outline-variant/20 bg-surface-container-lowest/90 p-space-md text-left shadow-card backdrop-blur-sm">
+                        <span
+                            class={`material-symbols-outlined text-[26px] ${item.iconClass}`}
+                            aria-hidden="true"
+                        >
+                            {item.icon}
+                        </span>
+                        <div class="flex flex-col">
+                            <span class="font-title-md text-[15px] font-semibold leading-tight text-on-surface">
+                                {item.title}
+                            </span>
+                            <span class="font-body-sm text-[13px] text-on-surface-variant">
+                                {item.subtitle}
+                            </span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="mt-space-lg hidden items-center justify-center gap-space-md rounded-full border border-outline-variant/20 bg-surface-container-lowest/70 px-space-lg py-2.5 text-outline shadow-card backdrop-blur-sm md:flex">
+                <span class="font-label-sm text-[11px] font-semibold uppercase tracking-wider text-primary">
+                    {content.banner.label}
+                </span>
+                <span class="text-outline-variant" aria-hidden="true">
+                    •
+                </span>
+                <span class="font-body-sm text-[13px] text-on-surface-variant">
+                    {content.banner.text}
+                </span>
+            </div>
+        </div>
+    </div>
+</section>

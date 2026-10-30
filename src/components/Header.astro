@@ -1,0 +1,188 @@
+---
+import { navLinks, site } from "../data/site";
+
+const content = {
+  monogram: "MS",
+  cta: "Agendar cita",
+  menuLabel: "Abrir menú de navegación",
+  closeLabel: "Cerrar menú de navegación",
+  navLabel: "Navegación principal",
+  menuTitle: "Menú",
+  menuSubtitle: "Cosmiatría & estilismo a domicilio",
+  menuContact: "¿Tienes dudas? Escríbeme por WhatsApp",
+  homeLabel: `${site.name} — Inicio`,
+};
+---
+
+<header
+  class="fixed inset-x-0 top-0 z-50 border-b border-outline-variant/20 bg-surface/85 shadow-[0_1px_8px_rgba(44,38,35,0.04)] backdrop-blur-xl"
+>
+  <div
+    class="mx-auto grid h-16 w-full max-w-content grid-cols-[2.75rem_1fr_2.75rem] items-center gap-2 px-margin md:px-margin-md lg:px-margin-lg xl:flex xl:h-20 xl:justify-between xl:gap-space-md"
+  >
+    <button
+      type="button"
+      class="flex size-11 items-center justify-center rounded-full text-on-surface transition-colors hover:bg-surface-container-high hover:text-primary xl:hidden"
+      aria-label={content.menuLabel}
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      data-menu-open
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+    </button>
+
+    <a
+      href="#inicio"
+      class="flex items-center justify-center gap-space-sm justify-self-center xl:justify-self-auto"
+      aria-label={content.homeLabel}
+    >
+      <span class="brand-mark hidden sm:flex" aria-hidden="true">{content.monogram}</span>
+      <span class="flex flex-col text-center xl:text-left">
+        <span class="font-headline-sm text-headline-sm leading-none tracking-tight text-on-surface">
+          {site.name}
+        </span>
+        <span class="mt-1 font-label-sm text-[10px] uppercase tracking-[0.16em] text-outline">
+          {site.role}
+        </span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-space-lg xl:flex" aria-label={content.navLabel}>
+      {
+        navLinks.map((link) => (
+          <a href={link.href} class="nav-link" data-nav-link={link.href}>
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center justify-end gap-space-sm justify-self-end xl:justify-self-auto">
+      <a href="#contacto" class="btn btn-primary hidden whitespace-nowrap px-4 py-2.5 sm:inline-flex">
+        {content.cta}
+        <span class="material-symbols-outlined text-[17px]" aria-hidden="true">calendar_add_on</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div
+  id="mobile-menu"
+  class="mobile-menu fixed inset-0 z-[60] hidden xl:hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="mobile-menu-title"
+>
+  <div
+    class="mobile-menu-backdrop absolute inset-0 bg-on-surface/40 backdrop-blur-sm"
+    data-menu-backdrop
+  ></div>
+  <div
+    class="mobile-menu-panel absolute inset-y-0 right-0 flex h-full w-[min(21rem,88vw)] flex-col bg-surface-container-lowest shadow-float"
+    data-menu-panel
+  >
+    <div class="flex items-center justify-between border-b border-outline-variant/30 px-6 py-4">
+      <div class="flex items-center gap-space-sm">
+        <span class="brand-mark" aria-hidden="true">{content.monogram}</span>
+        <div class="flex flex-col">
+          <span id="mobile-menu-title" class="font-headline-sm text-headline-sm leading-none">{site.name}</span>
+          <span class="mt-1 font-label-sm text-[10px] uppercase tracking-[0.16em] text-outline">{content.menuTitle}</span>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="flex size-10 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:bg-surface-container hover:text-primary"
+        aria-label={content.closeLabel}
+        data-menu-close
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">close</span>
+      </button>
+    </div>
+
+    <div class="flex flex-1 flex-col overflow-y-auto px-6 py-6">
+      <p class="eyebrow">{content.menuSubtitle}</p>
+      <nav class="mt-space-lg flex flex-col" aria-label={content.navLabel}>
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="flex items-center gap-space-sm border-b border-outline-variant/20 py-3.5 font-title-md text-title-md text-on-surface transition-colors hover:text-primary"
+              data-menu-link
+            >
+              <span class="material-symbols-outlined text-[20px] text-primary" aria-hidden="true">
+                {link.icon}
+              </span>
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <a href="#contacto" class="btn btn-primary mt-space-xl w-full" data-menu-link>
+        {content.cta}
+        <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+      </a>
+
+      <a
+        href={`https://wa.me/${site.whatsapp}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-space-md flex items-center justify-center gap-space-xs rounded-lg border border-outline-variant/60 px-4 py-3 text-center font-body-sm text-body-sm text-on-surface-variant transition-colors hover:bg-surface-container-low hover:text-primary"
+        data-menu-link
+      >
+        <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">chat</span>
+        {content.menuContact}
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const menu = document.querySelector<HTMLElement>("#mobile-menu");
+  const backdrop = menu?.querySelector<HTMLElement>("[data-menu-backdrop]");
+  const openButton = document.querySelector<HTMLButtonElement>("[data-menu-open]");
+  const closeButtons = document.querySelectorAll<HTMLElement>("[data-menu-close], [data-menu-link]");
+
+  let closeTimer: number | undefined;
+  let previousOverflow = "";
+  let previousFocus: HTMLElement | null = null;
+
+  const openMenu = () => {
+    if (!menu || !menu.classList.contains("hidden")) return;
+
+    previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    previousOverflow = document.body.style.overflow;
+    menu.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    openButton?.setAttribute("aria-expanded", "true");
+
+    // Fuerza el estado inicial antes de activar la transición.
+    void menu.offsetWidth;
+    menu.classList.add("is-open");
+    menu.querySelector<HTMLElement>("[data-menu-close]")?.focus();
+  };
+
+  const closeMenu = () => {
+    if (!menu || menu.classList.contains("hidden") || closeTimer !== undefined) return;
+
+    menu.classList.remove("is-open");
+    openButton?.setAttribute("aria-expanded", "false");
+
+    closeTimer = window.setTimeout(() => {
+      menu.classList.add("hidden");
+      document.body.style.overflow = previousOverflow;
+      closeTimer = undefined;
+      (previousFocus ?? openButton)?.focus({ preventScroll: true });
+    }, 420);
+  };
+
+  openButton?.addEventListener("click", openMenu);
+  closeButtons.forEach((button) => button.addEventListener("click", closeMenu));
+  backdrop?.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !menu || menu.classList.contains("hidden")) return;
+    event.preventDefault();
+    closeMenu();
+  });
+</script>

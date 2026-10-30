@@ -1,0 +1,81 @@
+---
+import { mobileNavLinks } from "../data/site";
+
+const content = {
+  navLabel: "Navegación móvil",
+};
+---
+
+<nav
+  class="fixed inset-x-0 bottom-0 z-50 border-t border-outline-variant/30 bg-surface/90 pb-[env(safe-area-inset-bottom)] shadow-[0_-2px_12px_rgba(44,38,35,0.04)] backdrop-blur-xl xl:hidden"
+  aria-label={content.navLabel}
+>
+  <div class="mx-auto flex h-16 max-w-content items-center justify-around px-gutter-sm">
+    {
+      mobileNavLinks.map((link) => (
+        <a
+          href={link.href}
+          class="flex min-h-12 min-w-12 flex-col items-center justify-center gap-1 whitespace-nowrap rounded-lg px-2 font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant transition-colors hover:text-primary"
+          data-mobile-nav-link={link.href}
+        >
+          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">{link.icon}</span>
+          <span>{link.label}</span>
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>("[data-nav-link], [data-mobile-nav-link]");
+  const sectionIds = ["inicio", "sobre-mi", "servicios", "casos", "testimonios", "contacto"];
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter((section): section is HTMLElement => Boolean(section));
+
+  const setActive = (id: string) => {
+    links.forEach((link) => {
+      const target = link.dataset.navLink ?? link.dataset.mobileNavLink;
+      const isActive = target === `#${id}`;
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+        link.dataset.active = "true";
+      } else {
+        link.removeAttribute("aria-current");
+        delete link.dataset.active;
+      }
+    });
+  };
+
+  let ticking = false;
+
+  const updateActiveSection = () => {
+    ticking = false;
+    const headerOffset = window.innerWidth >= 1280 ? 112 : 96;
+    let current = sections[0]?.id ?? "inicio";
+
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= headerOffset) {
+        current = section.id;
+      }
+    });
+
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      current = sections.at(-1)?.id ?? current;
+    }
+
+    setActive(current);
+  };
+
+  const requestUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateActiveSection);
+  };
+
+  if (sections.length > 0) {
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
+    updateActiveSection();
+  }
+</script>

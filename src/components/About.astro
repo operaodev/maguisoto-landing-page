@@ -1,0 +1,154 @@
+---
+import { Image } from "astro:assets";
+import { site } from "../data/site";
+import skinTexture from "../assets/images/about/skin-texture.jpg";
+import facialOil from "../assets/images/about/facial-oil.jpg";
+
+const content = {
+  eyebrow: "Filosofía & Vocación",
+  founderLabel: `${site.name} • Cosmiatra & Estilista`,
+  quote: "La verdadera belleza nace cuando tu piel se siente sana y tu estilo te representa.",
+  quoteCaption: "Cosmiatría, estilismo & bienestar a domicilio",
+  bio: {
+    lead: "Soy ",
+    highlight: site.name,
+    middle: `, cosmiatra y estilista independiente en Lima. Tras más de ${site.experienceYears} años acompañando a mujeres y hombres en el cuidado de su piel y su imagen, entendí que cada rostro necesita una mirada propia: sin protocolos genéricos ni prisas.`,
+    second:
+      "Mi enfoque integra cosmiatría facial y corporal, cejas, pestañas, maquillaje y estilismo. Trabajo a domicilio para que disfrutes una experiencia cómoda, personalizada y profesional, con productos biocompatibles, técnicas seguras y recomendaciones honestas para tu día a día.",
+  },
+  values: [
+    {
+      icon: "home_work",
+      iconClass: "bg-primary/10 text-primary",
+      title: "Atención a Domicilio",
+      description: "Llevo la experiencia a tu espacio, con insumos y cuidados profesionales.",
+    },
+    {
+      icon: "face_retouching_natural",
+      iconClass: "bg-secondary/10 text-secondary",
+      title: "Cosmiatría & Estilismo",
+      description: "Piel, cejas, pestañas, maquillaje y estilo en una sola experiencia.",
+    },
+    {
+      icon: "handshake",
+      iconClass: "bg-tertiary/10 text-tertiary",
+      title: "Atención Personalizada",
+      description: "Evalúo tu piel y tus objetivos para diseñar cada servicio a tu medida.",
+    },
+  ],
+  gallery: {
+    firstAlt:
+      "Textura de una piel facial sana y luminosa bajo luz natural cálida, con hidratación y poros refinados",
+    secondAlt:
+      "Cosmetóloga aplicando un tratamiento facial relajante en un espacio cálido y cuidado",
+    stat: `${site.experienceYears}+`,
+    statLabel: "Años de experiencia en cosmiatría y estilismo",
+    diagnosticLabel: "Evaluación personalizada",
+    diagnosticText: "Piel, mirada & estilo",
+  },
+  diagnostic: {
+    label: "Evaluación Integral",
+    icon: "face_retouching_natural",
+    title: "Piel, mirada & estilo a tu medida",
+    description:
+      "Antes de comenzar, evalúo tu piel, tus objetivos y tu estilo para diseñar un protocolo facial, corporal o de imagen que realmente se adapte a ti.",
+  },
+};
+---
+
+<section id="sobre-mi" class="section-shell bg-surface-container-low">
+  <div class="container-page">
+    <div class="grid grid-cols-1 gap-gutter lg:grid-cols-12 lg:items-center">
+      <div class="hidden gap-space-sm lg:col-span-5 lg:grid lg:grid-cols-2">
+        <div class="space-y-space-sm pt-space-lg">
+          <div class="aspect-3/4 w-full overflow-hidden rounded-xl bg-surface-container shadow-card">
+            <Image
+              src={skinTexture}
+              alt={content.gallery.firstAlt}
+              widths={[300, 512]}
+              sizes="(min-width: 1024px) 22vw, 100vw"
+              loading="lazy"
+              decoding="async"
+              class="size-full object-cover transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+          <div class="rounded-xl bg-surface-container-lowest p-space-md shadow-card">
+            <span class="text-headline-md font-display text-primary">{content.gallery.stat}</span>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">{content.gallery.statLabel}</p>
+          </div>
+        </div>
+        <div class="space-y-space-sm">
+          <div class="rounded-xl bg-secondary-container p-space-md text-on-secondary-container shadow-card">
+            <span class="material-symbols-outlined mb-2 text-[28px] text-secondary" aria-hidden="true">psychology_alt</span>
+            <p class="font-title-md text-[14px] font-semibold leading-snug">{content.gallery.diagnosticLabel}</p>
+            <p class="mt-1 font-body-sm text-body-sm">{content.gallery.diagnosticText}</p>
+          </div>
+          <div class="aspect-3/4 w-full overflow-hidden rounded-xl bg-surface-container shadow-card">
+            <Image
+              src={facialOil}
+              alt={content.gallery.secondAlt}
+              widths={[300, 512]}
+              sizes="(min-width: 1024px) 22vw, 100vw"
+              loading="lazy"
+              decoding="async"
+              class="size-full object-cover transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 lg:pl-space-md">
+        <span class="eyebrow">{content.eyebrow}</span>
+
+        <div class="relative mt-space-sm overflow-hidden rounded-xl bg-surface p-space-md shadow-card lg:bg-transparent lg:p-0 lg:shadow-none">
+          <span
+            class="pointer-events-none absolute -left-1 -top-3 select-none font-display text-[72px] leading-none text-primary/10 lg:hidden"
+            aria-hidden="true"
+          >“</span>
+          <p class="relative z-10 font-label-sm text-[11px] uppercase tracking-widest text-primary lg:hidden">
+            {content.founderLabel}
+          </p>
+          <h2 class="relative z-10 mt-2 font-headline-md text-headline-md leading-snug text-on-surface md:font-headline-lg md:text-headline-lg">
+            «{content.quote}»
+          </h2>
+          <div class="mt-space-sm hidden items-center gap-2 lg:flex">
+            <span class="h-px w-5 bg-primary" aria-hidden="true"></span>
+            <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
+              {content.quoteCaption}
+            </span>
+          </div>
+        </div>
+
+        <p class="mt-space-md font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
+          {content.bio.lead}<strong class="font-semibold text-on-surface">{content.bio.highlight}</strong>{content.bio.middle}
+        </p>
+        <p class="mt-space-md font-body-md text-body-md leading-relaxed text-on-surface-variant">
+          {content.bio.second}
+        </p>
+
+        <div class="mt-space-lg grid grid-cols-1 gap-space-sm sm:grid-cols-3">
+          {
+            content.values.map((value) => (
+              <div class="flex flex-col rounded-xl border border-outline-variant/20 bg-surface-container-lowest p-space-md shadow-card">
+                <div class={`mb-space-xs flex size-8 items-center justify-center rounded-full ${value.iconClass}`}>
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">{value.icon}</span>
+                </div>
+                <h3 class="font-title-md text-title-md text-on-surface">{value.title}</h3>
+                <p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">{value.description}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-space-lg flex flex-col gap-space-sm rounded-xl bg-primary-container p-space-lg text-on-primary shadow-float">
+          <div class="flex items-center justify-between gap-space-sm">
+            <span class="font-label-sm text-label-sm uppercase tracking-wider opacity-90">{content.diagnostic.label}</span>
+            <span class="material-symbols-outlined text-[20px] opacity-80" aria-hidden="true">{content.diagnostic.icon}</span>
+          </div>
+          <h3 class="font-headline-sm text-headline-sm leading-tight text-on-primary">{content.diagnostic.title}</h3>
+          <p class="font-body-sm text-body-sm leading-relaxed opacity-90">{content.diagnostic.description}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,71 @@
+---
+import { site } from "../data/site";
+
+const content = {
+  eyebrow: "Experiencias en Primera Persona",
+  title: `Lo que dicen quienes confían su piel a ${site.firstName}`,
+  description: "Voces reales de clientas que eligieron una atención cercana, personalizada y a domicilio.",
+  testimonials: [
+    {
+      quote: `Llegué con la piel sensibilizada y sin rumbo. ${site.firstName} evaluó mi piel con calma, me explicó cada paso y me armó una rutina simple. En pocas sesiones recuperé la luminosidad y la calma.`,
+      name: "Camila Román",
+      date: "Hace 2 semanas",
+      treatment: "Limpieza Facial Profunda",
+    },
+    {
+      quote: `El Pink Glow es mi momento favorito del mes. Salgo con la piel hidratada, luminosa y el rostro descansado; además ${site.firstName} siempre acierta con lo que mi piel necesita.`,
+      name: "Marcela Valenzuela",
+      date: "Hace 1 mes",
+      treatment: "Pink Glow & Masoterapia Facial",
+    },
+    {
+      quote: `Quería una mirada más definida sin verme exagerada. ${site.firstName} diseñó las extensiones según mis ojos y el resultado fue súper natural; me encantó.`,
+      name: "Ignacia Benítez",
+      date: "Hace 2 meses",
+      treatment: "Extensiones de Pestañas",
+    },
+  ],
+  starsLabel: "5 de 5 estrellas",
+};
+---
+
+<section id="testimonios" class="section-shell bg-surface">
+  <div class="container-page">
+    <div class="mx-auto mb-space-lg max-w-2xl text-center">
+      <span class="eyebrow">{content.eyebrow}</span>
+      <h2 class="section-title mt-1">
+        {content.title}
+      </h2>
+      <p class="mt-space-xs font-body-md text-body-md text-on-surface-variant">{content.description}</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-gutter md:grid-cols-3">
+      {
+        content.testimonials.map((testimonial) => (
+          <article class="flex flex-col justify-between rounded-xl border border-outline-variant/20 bg-surface-container-low p-space-lg shadow-card">
+            <div>
+              <div class="flex items-center justify-between gap-space-sm">
+                <div class="flex text-tertiary" role="img" aria-label={content.starsLabel}>
+                  {Array.from({ length: 5 }).map(() => (
+                    <span class="material-symbols-outlined is-filled text-[17px]" aria-hidden="true">star</span>
+                  ))}
+                </div>
+                <span class="font-label-sm text-[11px] text-on-surface-variant">{testimonial.date}</span>
+              </div>
+              <p class="mt-space-sm font-body-md text-body-md italic leading-relaxed text-on-surface-variant">
+                «{testimonial.quote}»
+              </p>
+            </div>
+
+            <div class="mt-space-md flex flex-col gap-1 border-t border-outline-variant/30 pt-space-md">
+              <span class="font-title-md text-[15px] font-semibold text-on-surface">{testimonial.name}</span>
+              <span class="font-label-sm text-[10px] uppercase tracking-wider text-secondary">
+                {testimonial.treatment}
+              </span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
