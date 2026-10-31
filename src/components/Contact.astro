@@ -3,320 +3,422 @@ import { bookingOptions } from "../data/services";
 import { site, whatsappUrl } from "../data/site";
 
 const content = {
-  eyebrow: "Cita Personalizada",
-  title: "Solicita tu Evaluación Integral",
-  description: `Completa los datos y ${site.firstName} coordinará personalmente contigo el horario definitivo vía WhatsApp o correo.`,
-  form: {
-    nameLabel: "Nombre Completo *",
-    namePlaceholder: "Ej: Sofía Morales",
-    phoneLabel: "Teléfono / WhatsApp *",
-    phonePlaceholder: "+51 9 1234 5678",
-    emailLabel: "Correo Electrónico *",
-    emailPlaceholder: "tuemail@ejemplo.com",
-    serviceLabel: "Servicio de Interés *",
-    servicePlaceholder: "Selecciona un protocolo...",
-    dateLabel: "Fecha & Franja Horaria Tentativa",
-    datePlaceholder: "Ej: Martes o Jueves por la tarde (después de las 16:00)",
-    notesLabel: "Cuéntame sobre tu piel (tipo, alergias o inquietud principal)",
-    notesPlaceholder:
-      "Siento tirantez, tengo sensibilidad en invierno o busco tratar manchas específicas...",
-    submit: "Confirmar Solicitud de Cita",
-    successTitle: "¡Solicitud lista!",
-    successMessage: `Te estamos redirigiendo a WhatsApp. ${site.firstName} revisará tu disponibilidad y te confirmará el cupo a la brevedad.`,
-    redirectLabel: "Si WhatsApp no se abre automáticamente, toca aquí",
-  },
-  info: {
-    title: "Atención a Domicilio",
-    description: site.location.description,
-    hoursTitle: "Horarios de atención",
-    paymentsLabel: "Medios de pago",
-    payments: site.payments,
-    whatsapp: `Chatear directo con ${site.firstName} por WhatsApp`,
-    whatsappMessage: `Hola ${site.firstName}, quisiera consultar por una hora de evaluación.`,
-  },
-  faq: {
-    title: "Preguntas Frecuentes",
-    items: [
-      {
-        question: "¿Cómo debo preparar mi piel antes de la cita?",
-        answer:
-          "Te sugerimos acudir sin maquillaje si es posible y suspender el uso de ácidos exfoliantes fuertes o retinol al menos 48 horas antes de tu sesión.",
-      },
-      {
-        question: "¿Cuánto dura la primera evaluación inicial?",
-        answer:
-          "Dedicamos entre 20 y 30 minutos al diagnóstico dérmico y anamnesis inicial. Si reservas un tratamiento completo el mismo día, la evaluación va incluida dentro de la sesión.",
-      },
-      {
-        question: "¿Quedará mi piel enrojecida después del tratamiento?",
-        answer:
-          "Nuestros protocolos son respetuosos y descongestivos. En la mayoría de los casos podrás retomar tus actividades habituales de inmediato con un aspecto radiante y luminoso.",
-      },
-      {
-        question: "¿Los procedimientos invasivos requieren evaluación?",
-        answer:
-          "Sí. Botox, rellenos, PRP, hidrolipoclasia y mesoterapia se realizan previa valoración y con indicaciones personalizadas.",
-      },
-      {
-        question: "¿Cuáles son los medios de pago aceptados?",
-        answer:
-          "Aceptamos Yape, Plin, efectivo y transferencia. Coordinamos el medio de pago al agendar tu cita.",
-      },
-    ],
-  },
+    eyebrow: "Cita Personalizada",
+    title: "Solicita tu Evaluación Integral",
+    description: `Completa los datos y ${site.firstName} coordinará personalmente contigo el horario definitivo vía WhatsApp o correo.`,
+    form: {
+        nameLabel: "Nombre Completo *",
+        namePlaceholder: "Ej: Sofía Morales",
+        phoneLabel: "Teléfono / WhatsApp *",
+        phonePlaceholder: "+51 9 1234 5678",
+        emailLabel: "Correo Electrónico *",
+        emailPlaceholder: "tuemail@ejemplo.com",
+        serviceLabel: "Servicio de Interés *",
+        servicePlaceholder: "Selecciona un protocolo...",
+        dateLabel: "Fecha & Hora Tentativa",
+        dateHint:
+            "Elige el día y la hora que prefieras. Luego coordinamos la disponibilidad final.",
+        notesLabel:
+            "Cuéntame sobre tu piel (tipo, alergias o inquietud principal)",
+        notesPlaceholder:
+            "Siento tirantez, tengo sensibilidad en invierno o busco tratar manchas específicas...",
+        submit: "Confirmar Solicitud de Cita",
+        successTitle: "¡Solicitud lista!",
+        successMessage: `Te estamos redirigiendo a WhatsApp. ${site.firstName} revisará tu disponibilidad y te confirmará el cupo a la brevedad.`,
+        redirectLabel: "Si WhatsApp no se abre automáticamente, toca aquí",
+    },
+    info: {
+        title: "Atención a Domicilio",
+        description: site.location.description,
+        hoursTitle: "Horarios de atención",
+        paymentsLabel: "Medios de pago",
+        payments: site.payments,
+        whatsapp: `Chatear directo con ${site.firstName} por WhatsApp`,
+        whatsappMessage: `Hola ${site.firstName}, quisiera consultar por una hora de evaluación.`,
+    },
+    faq: {
+        title: "Preguntas Frecuentes",
+        items: [
+            {
+                question: "¿Cómo debo preparar mi piel antes de la cita?",
+                answer: "Te sugerimos acudir sin maquillaje si es posible y suspender el uso de ácidos exfoliantes fuertes o retinol al menos 48 horas antes de tu sesión.",
+            },
+            {
+                question: "¿Cuánto dura la primera evaluación inicial?",
+                answer: "Dedicamos entre 20 y 30 minutos al diagnóstico dérmico y anamnesis inicial. Si reservas un tratamiento completo el mismo día, la evaluación va incluida dentro de la sesión.",
+            },
+            {
+                question:
+                    "¿Quedará mi piel enrojecida después del tratamiento?",
+                answer: "Nuestros protocolos son respetuosos y descongestivos. En la mayoría de los casos podrás retomar tus actividades habituales de inmediato con un aspecto radiante y luminoso.",
+            },
+            {
+                question: "¿Los procedimientos invasivos requieren evaluación?",
+                answer: "Sí. Botox, rellenos, PRP, hidrolipoclasia y mesoterapia se realizan previa valoración y con indicaciones personalizadas.",
+            },
+            {
+                question: "¿Cuáles son los medios de pago aceptados?",
+                answer: "Aceptamos Yape, Plin, efectivo y transferencia. Coordinamos el medio de pago al agendar tu cita.",
+            },
+        ],
+    },
 };
 
 const directWhatsapp = whatsappUrl(content.info.whatsappMessage);
 ---
 
 <section id="contacto" class="section-shell bg-surface-container-low">
-  <div class="container-page">
-    <div class="grid grid-cols-1 items-start gap-gutter lg:grid-cols-12">
-      <div class="rounded-xl border border-outline-variant/20 bg-surface-container-lowest p-space-lg shadow-float md:p-space-xl lg:col-span-7">
-        <div class="mb-space-md">
-          <span class="eyebrow">{content.eyebrow}</span>
-          <h2 class="section-title mt-1">
-            {content.title}
-          </h2>
-          <p class="mt-1 font-body-md text-body-md text-on-surface-variant">{content.description}</p>
-        </div>
-
-        <form
-          id="booking-form"
-          class="space-y-space-md"
-          action={directWhatsapp}
-          method="get"
-          target="_blank"
-          data-whatsapp={site.whatsapp}
-          data-first-name={site.firstName}
-        >
-          <div class="grid grid-cols-1 gap-space-md sm:grid-cols-2">
-            <div class="flex flex-col">
-              <label class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="full_name">
-                {content.form.nameLabel}
-              </label>
-              <input
-                class="field"
-                id="full_name"
-                name="name"
-                placeholder={content.form.namePlaceholder}
-                autocomplete="name"
-                required
-                type="text"
-              />
-            </div>
-            <div class="flex flex-col">
-              <label class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="whatsapp">
-                {content.form.phoneLabel}
-              </label>
-              <input
-                class="field"
-                id="whatsapp"
-                name="phone"
-                placeholder={content.form.phonePlaceholder}
-                autocomplete="tel"
-                required
-                type="tel"
-              />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 gap-space-md sm:grid-cols-2">
-            <div class="flex flex-col">
-              <label class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="email">
-                {content.form.emailLabel}
-              </label>
-              <input
-                class="field"
-                id="email"
-                name="email"
-                placeholder={content.form.emailPlaceholder}
-                autocomplete="email"
-                required
-                type="email"
-              />
-            </div>
-            <div class="flex flex-col">
-              <label class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="service">
-                {content.form.serviceLabel}
-              </label>
-              <select class="field" id="service" name="service" required>
-                <option value="">{content.form.servicePlaceholder}</option>
-                {
-                  bookingOptions.map((option) => (
-                    <option value={option.id}>
-                      {option.name}{option.price ? ` (${option.price})` : ""}
-                    </option>
-                  ))
-                }
-              </select>
-            </div>
-          </div>
-
-          <div class="flex flex-col">
-            <label class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="preferred_date">
-              {content.form.dateLabel}
-            </label>
-            <input
-              class="field"
-              id="preferred_date"
-              name="date"
-              placeholder={content.form.datePlaceholder}
-              type="text"
-            />
-          </div>
-
-          <div class="flex flex-col">
-            <label class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="skin_notes">
-              {content.form.notesLabel}
-            </label>
-            <textarea
-              class="field resize-none"
-              id="skin_notes"
-              name="notes"
-              placeholder={content.form.notesPlaceholder}
-              rows="3"
-            ></textarea>
-          </div>
-
-          <button class="btn btn-primary w-full py-3.5" type="submit">
-            {content.form.submit}
-            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">send</span>
-          </button>
-        </form>
-
-        <div
-          id="booking-success"
-          class="mt-space-md hidden rounded-lg bg-secondary-container p-space-md text-on-secondary-container"
-          role="status"
-          aria-live="polite"
-        >
-          <div class="flex items-center gap-space-xs">
-            <span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">check_circle</span>
-            <p class="font-title-md text-[14px] font-semibold">{content.form.successTitle}</p>
-          </div>
-          <p class="mt-1 font-body-sm text-body-sm">{content.form.successMessage}</p>
-          <a
-            id="booking-success-link"
-            class="mt-2 inline-flex font-label-sm text-label-sm uppercase tracking-wider text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
-            href={directWhatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {content.form.redirectLabel}
-          </a>
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-space-lg lg:col-span-5">
-        <div class="rounded-xl border border-outline-variant/20 bg-surface-container-low p-space-lg shadow-card">
-          <div class="flex items-center gap-space-xs">
-            <span class="material-symbols-outlined text-[24px] text-primary" aria-hidden="true">home_work</span>
-            <h3 class="font-headline-sm text-headline-sm text-on-surface">{content.info.title}</h3>
-          </div>
-          <p class="mt-space-sm font-body-md text-body-md leading-relaxed text-on-surface-variant">
-            {content.info.description}
-          </p>
-
-          <div class="mt-space-md space-y-space-xs font-body-sm text-body-sm text-on-surface-variant">
-            <p class="font-label-sm text-label-sm uppercase tracking-wider text-outline">{content.info.hoursTitle}</p>
-            {
-              site.hours.map((hour) => (
-                <div class="flex items-center gap-space-xs">
-                  <span class="material-symbols-outlined text-[18px] text-outline" aria-hidden="true">schedule</span>
-                  <span><strong>{hour.label}:</strong> {hour.value}</span>
+    <div class="container-page">
+        <div class="grid grid-cols-1 items-start gap-gutter lg:grid-cols-12">
+            <div class="rounded-xl border border-outline-variant/20 bg-surface-container-lowest p-space-lg shadow-float md:p-space-xl lg:col-span-7">
+                <div class="mb-space-md">
+                    <span class="eyebrow">{content.eyebrow}</span>
+                    <h2 class="section-title mt-1">{content.title}</h2>
+                    <p class="mt-1 font-body-md text-body-md text-on-surface-variant">
+                        {content.description}
+                    </p>
                 </div>
-              ))
-            }
-            <div class="flex items-center gap-space-xs pt-1">
-              <span class="material-symbols-outlined text-[18px] text-outline" aria-hidden="true">payments</span>
-              <span><strong>{content.info.paymentsLabel}:</strong> {content.info.payments}</span>
+
+                <form
+                    id="booking-form"
+                    class="space-y-space-md"
+                    action={directWhatsapp}
+                    method="get"
+                    target="_blank"
+                    data-whatsapp={site.whatsapp}
+                    data-first-name={site.firstName}
+                >
+                    <div class="grid grid-cols-1 gap-space-md sm:grid-cols-2">
+                        <div class="flex flex-col">
+                            <label
+                                class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                for="full_name"
+                            >
+                                {content.form.nameLabel}
+                            </label>
+                            <input
+                                class="field"
+                                id="full_name"
+                                name="name"
+                                placeholder={content.form.namePlaceholder}
+                                autocomplete="name"
+                                required
+                                type="text"
+                            />
+                        </div>
+                        <div class="flex flex-col">
+                            <label
+                                class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                for="whatsapp"
+                            >
+                                {content.form.phoneLabel}
+                            </label>
+                            <input
+                                class="field"
+                                id="whatsapp"
+                                name="phone"
+                                placeholder={content.form.phonePlaceholder}
+                                autocomplete="tel"
+                                required
+                                type="tel"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-space-md sm:grid-cols-2">
+                        <div class="flex flex-col">
+                            <label
+                                class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                for="email"
+                            >
+                                {content.form.emailLabel}
+                            </label>
+                            <input
+                                class="field"
+                                id="email"
+                                name="email"
+                                placeholder={content.form.emailPlaceholder}
+                                autocomplete="email"
+                                required
+                                type="email"
+                            />
+                        </div>
+                        <div class="flex flex-col">
+                            <label
+                                class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                for="service"
+                            >
+                                {content.form.serviceLabel}
+                            </label>
+                            <select
+                                class="field"
+                                id="service"
+                                name="service"
+                                required
+                            >
+                                <option value="">
+                                    {content.form.servicePlaceholder}
+                                </option>
+                                {bookingOptions.map((option) => (
+                                    <option value={option.id}>
+                                        {option.name}
+                                        {option.price
+                                            ? ` (${option.price})`
+                                            : ""}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label
+                            class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                            for="preferred_datetime"
+                        >
+                            {content.form.dateLabel}
+                        </label>
+                        <input
+                            class="field"
+                            id="preferred_datetime"
+                            name="datetime"
+                            type="datetime-local"
+                            step="60"
+                            aria-describedby="datetime-hint"
+                        />
+                        <p
+                            id="datetime-hint"
+                            class="mt-1 font-body-sm text-body-sm text-outline"
+                        >
+                            {content.form.dateHint}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label
+                            class="mb-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                            for="skin_notes"
+                        >
+                            {content.form.notesLabel}
+                        </label>
+                        <textarea
+                            class="field resize-none"
+                            id="skin_notes"
+                            name="notes"
+                            placeholder={content.form.notesPlaceholder}
+                            rows="3"
+                        ></textarea>
+                    </div>
+
+                    <button class="btn btn-primary w-full py-3.5" type="submit">
+                        {content.form.submit}
+                        <span
+                            class="material-symbols-outlined text-[18px]"
+                            aria-hidden="true"
+                        >
+                            send
+                        </span>
+                    </button>
+                </form>
+
+                <div
+                    id="booking-success"
+                    class="mt-space-md hidden rounded-lg bg-secondary-container p-space-md text-on-secondary-container"
+                    role="status"
+                    aria-live="polite"
+                >
+                    <div class="flex items-center gap-space-xs">
+                        <span
+                            class="material-symbols-outlined text-[20px] text-secondary"
+                            aria-hidden="true"
+                        >
+                            check_circle
+                        </span>
+                        <p class="font-title-md text-[14px] font-semibold">
+                            {content.form.successTitle}
+                        </p>
+                    </div>
+                    <p class="mt-1 font-body-sm text-body-sm">
+                        {content.form.successMessage}
+                    </p>
+                    <a
+                        id="booking-success-link"
+                        class="mt-2 inline-flex font-label-sm text-label-sm uppercase tracking-wider text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+                        href={directWhatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {content.form.redirectLabel}
+                    </a>
+                </div>
             </div>
-          </div>
 
-          <a
-            class="mt-space-md inline-flex w-full items-center justify-center gap-space-xs rounded-lg bg-secondary px-4 py-3 font-label-md text-label-md font-semibold uppercase tracking-wider text-on-secondary shadow-card transition-all hover:bg-secondary-container hover:text-on-secondary-container"
-            href={directWhatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">chat</span>
-            {content.info.whatsapp}
-          </a>
-        </div>
+            <div class="flex flex-col gap-space-lg lg:col-span-5">
+                <div class="rounded-xl border border-outline-variant/20 bg-surface-container-low p-space-lg shadow-card">
+                    <div class="flex items-center gap-space-xs">
+                        <span
+                            class="material-symbols-outlined text-[24px] text-primary"
+                            aria-hidden="true"
+                        >
+                            home_work
+                        </span>
+                        <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                            {content.info.title}
+                        </h3>
+                    </div>
+                    <p class="mt-space-sm font-body-md text-body-md leading-relaxed text-on-surface-variant">
+                        {content.info.description}
+                    </p>
 
-        <div class="rounded-xl border border-outline-variant/20 bg-surface-container-lowest p-space-lg shadow-card">
-          <h3 class="flex items-center gap-space-xs font-title-md text-title-md text-on-surface">
-            <span class="material-symbols-outlined text-[20px] text-tertiary" aria-hidden="true">help</span>
-            {content.faq.title}
-          </h3>
-          <div class="mt-space-sm">
-            {
-              content.faq.items.map((item) => (
-                <details class="group border-b border-outline-variant/30 py-space-xs last:border-0">
-                  <summary class="flex cursor-pointer list-none select-none items-center justify-between gap-space-sm font-title-md text-[14px] text-on-surface">
-                    <span>{item.question}</span>
-                    <span class="material-symbols-outlined text-outline transition-transform group-open:rotate-180" aria-hidden="true">
-                      expand_more
-                    </span>
-                  </summary>
-                  <p class="mt-2 font-body-sm text-body-sm leading-relaxed text-on-surface-variant">{item.answer}</p>
-                </details>
-              ))
-            }
-          </div>
+                    <div class="mt-space-md space-y-space-xs font-body-sm text-body-sm text-on-surface-variant">
+                        <p class="font-label-sm text-label-sm uppercase tracking-wider text-outline">
+                            {content.info.hoursTitle}
+                        </p>
+                        {site.hours.map((hour) => (
+                            <div class="flex items-center gap-space-xs">
+                                <span
+                                    class="material-symbols-outlined text-[18px] text-outline"
+                                    aria-hidden="true"
+                                >
+                                    schedule
+                                </span>
+                                <span>
+                                    <strong>{hour.label}:</strong> {hour.value}
+                                </span>
+                            </div>
+                        ))}
+                        <div class="flex items-center gap-space-xs pt-1">
+                            <span
+                                class="material-symbols-outlined text-[18px] text-outline"
+                                aria-hidden="true"
+                            >
+                                payments
+                            </span>
+                            <span>
+                                <strong>{content.info.paymentsLabel}:</strong>{" "}
+                                {content.info.payments}
+                            </span>
+                        </div>
+                    </div>
+
+                    <a
+                        class="mt-space-md inline-flex w-full items-center justify-center gap-space-xs rounded-lg bg-secondary px-4 py-3 font-label-md text-label-md font-semibold uppercase tracking-wider text-on-secondary shadow-card transition-all hover:bg-secondary-container hover:text-on-secondary-container"
+                        href={directWhatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span
+                            class="material-symbols-outlined text-[20px]"
+                            aria-hidden="true"
+                        >
+                            chat
+                        </span>
+                        {content.info.whatsapp}
+                    </a>
+                </div>
+
+                <div class="rounded-xl border border-outline-variant/20 bg-surface-container-lowest p-space-lg shadow-card">
+                    <h3 class="flex items-center gap-space-xs font-title-md text-title-md text-on-surface">
+                        <span
+                            class="material-symbols-outlined text-[20px] text-tertiary"
+                            aria-hidden="true"
+                        >
+                            help
+                        </span>
+                        {content.faq.title}
+                    </h3>
+                    <div class="mt-space-sm">
+                        {content.faq.items.map((item) => (
+                            <details class="group border-b border-outline-variant/30 py-space-xs last:border-0">
+                                <summary class="flex cursor-pointer list-none select-none items-center justify-between gap-space-sm font-title-md text-[14px] text-on-surface">
+                                    <span>{item.question}</span>
+                                    <span
+                                        class="material-symbols-outlined text-outline transition-transform group-open:rotate-180"
+                                        aria-hidden="true"
+                                    >
+                                        expand_more
+                                    </span>
+                                </summary>
+                                <p class="mt-2 font-body-sm text-body-sm leading-relaxed text-on-surface-variant">
+                                    {item.answer}
+                                </p>
+                            </details>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <script>
-  const form = document.querySelector<HTMLFormElement>("#booking-form");
-  const serviceSelect = document.querySelector<HTMLSelectElement>("#service");
-  const successBox = document.querySelector<HTMLElement>("#booking-success");
-  const successLink = document.querySelector<HTMLAnchorElement>("#booking-success-link");
+    const form = document.querySelector<HTMLFormElement>("#booking-form");
+    const serviceSelect = document.querySelector<HTMLSelectElement>("#service");
+    const datetimeInput = document.querySelector<HTMLInputElement>("#preferred_datetime");
+    const successBox = document.querySelector<HTMLElement>("#booking-success");
+    const successLink = document.querySelector<HTMLAnchorElement>(
+        "#booking-success-link",
+    );
 
-  document.querySelectorAll<HTMLAnchorElement>("[data-service]").forEach((link) => {
-    link.addEventListener("click", () => {
-      const selectedService = link.dataset.service ?? "";
-      if (!serviceSelect || !selectedService) return;
-      const exists = [...serviceSelect.options].some((option) => option.value === selectedService);
-      if (exists) serviceSelect.value = selectedService;
-    });
-  });
-
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-
-    const data = new FormData(form);
-    const value = (key: string) => String(data.get(key) ?? "").trim();
-    const phone = form.dataset.whatsapp ?? "";
-    const firstName = form.dataset.firstName ?? "";
-    const selectedOption = serviceSelect?.selectedOptions[0];
-    const serviceName = selectedOption?.textContent?.trim() ?? "";
-
-    const message = [
-      `Hola ${firstName}, quisiera agendar una evaluación personalizada.`,
-      `Nombre: ${value("name")}`,
-      `Teléfono: ${value("phone")}`,
-      `Email: ${value("email")}`,
-      `Servicio de interés: ${serviceName}`,
-      value("date") ? `Fecha tentativa: ${value("date")}` : "",
-      value("notes") ? `Sobre mi piel: ${value("notes")}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    if (successLink) successLink.href = url;
-    const opened = window.open(url, "_blank", "noopener,noreferrer");
-    if (!opened) window.location.href = url;
-
-    if (successBox) {
-      successBox.classList.remove("hidden");
-      successBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (datetimeInput) {
+        const now = new Date();
+        const pad = (value: number) => String(value).padStart(2, "0");
+        datetimeInput.min = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
     }
-  });
+
+    const formatDateTime = (value: string) => {
+        if (!value) return "";
+        const [date, time] = value.split("T");
+        const [year, month, day] = date.split("-");
+        return `${day}/${month}/${year} a las ${time}`;
+    };
+
+    document
+        .querySelectorAll<HTMLAnchorElement>("[data-service]")
+        .forEach((link) => {
+            link.addEventListener("click", () => {
+                const selectedService = link.dataset.service ?? "";
+                if (!serviceSelect || !selectedService) return;
+                const exists = [...serviceSelect.options].some(
+                    (option) => option.value === selectedService,
+                );
+                if (exists) serviceSelect.value = selectedService;
+            });
+        });
+
+    form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
+        const value = (key: string) => String(data.get(key) ?? "").trim();
+        const phone = form.dataset.whatsapp ?? "";
+        const firstName = form.dataset.firstName ?? "";
+        const selectedOption = serviceSelect?.selectedOptions[0];
+        const serviceName = selectedOption?.textContent?.trim() ?? "";
+
+        const message = [
+            `Hola ${firstName}, quisiera agendar una evaluación personalizada.`,
+            `Nombre: ${value("name")}`,
+            `Teléfono: ${value("phone")}`,
+            `Email: ${value("email")}`,
+            `Servicio de interés: ${serviceName}`,
+            value("datetime")
+                ? `Fecha y hora tentativa: ${formatDateTime(value("datetime"))}`
+                : "",
+            value("notes") ? `Sobre mi piel: ${value("notes")}` : "",
+        ]
+            .filter(Boolean)
+            .join("\n");
+
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        if (successLink) successLink.href = url;
+        const opened = window.open(url, "_blank", "noopener,noreferrer");
+        if (!opened) window.location.href = url;
+
+        if (successBox) {
+            successBox.classList.remove("hidden");
+            successBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+    });
 </script>
