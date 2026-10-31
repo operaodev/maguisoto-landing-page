@@ -11,6 +11,7 @@ export interface Hour {
 
 export const site = {
   name: "Magui Soto",
+  url: "https://maguisoto.website",
   firstName: "Magui",
   role: "Cosmiatría & Estilista",
   credential: "Cosmiatra & Estilista Profesional",
