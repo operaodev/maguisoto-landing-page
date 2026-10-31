@@ -1,166 +1,217 @@
 ---
 import { Image } from "astro:assets";
 
-import placeholderAntes from "../assets/images/cases/placeholder-antes.jpg";
-import placeholderDespues from "../assets/images/cases/placeholder-despues.jpg";
+import cejasAntes from "../assets/images/cases/cejas-antes.jpg";
+import cejasDespues from "../assets/images/cases/cejas-despues.jpg";
+import pestanasAntes from "../assets/images/cases/pestanas-antes.jpeg";
+import pestanasDespues from "../assets/images/cases/pestanas-despues.jpeg";
+import peptonasAntes from "../assets/images/cases/peptonas-antes.jpeg";
+import peptonasDespues from "../assets/images/cases/peptonas-despues.jpeg";
+import estilismoAntes from "../assets/images/cases/estilismo-antes.jpg";
+import estilismoDespues from "../assets/images/cases/estilismo-despues.jpg";
 
 const content = {
-  eyebrow: "Servicios en Acción",
-  title: "Resultados & Transformaciones",
-  description:
-    "Una muestra visual de lo que podemos lograr juntos. Cada resultado se adapta a tu piel, tu mirada y tu estilo; las imágenes son referenciales.",
-  metrics: [
-    { value: "+200", label: "Servicios realizados", color: "text-primary" },
-    { value: "99%", label: "Satisfacción", color: "text-secondary" },
-    { value: "4.9/5", label: "En 80+ reseñas", color: "text-tertiary" },
-  ],
-  results: [
-    {
-      badge: "Cejas",
-      badgeClass: "bg-secondary-container text-on-secondary-container",
-      title: "Microblading & Shading",
-      description:
-        "Diseño personalizado y micropigmentación para definir, rellenar y armonizar tus cejas con un efecto natural.",
-      service: "Servicio: Microblading & Shading · incluye diseño y retoque.",
-      before: {
-        image: placeholderAntes,
-        alt: "Imagen referencial de cejas antes del microblading",
-        caption: "Antes",
-      },
-      after: {
-        image: placeholderDespues,
-        alt: "Imagen referencial de cejas después del microblading",
-        caption: "Después",
-      },
+    eyebrow: "Servicios en Acción",
+    title: "Resultados & Transformaciones",
+    description:
+        "Una muestra visual de lo que podemos lograr juntos. Cada resultado se adapta a tu piel, tu mirada y tu estilo; las imágenes son referenciales.",
+    metrics: [
+        { value: "+500", label: "Servicios realizados", color: "text-primary" },
+        { value: "99%", label: "Satisfacción", color: "text-secondary" },
+        { value: "4.9/5", label: "En 80+ reseñas", color: "text-tertiary" },
+    ],
+    results: [
+        {
+            badge: "Cejas",
+            badgeClass: "bg-secondary-container text-on-secondary-container",
+            title: "Microblading & Shading",
+            description:
+                "Diseño personalizado y micropigmentación para definir, rellenar y armonizar tus cejas con un efecto natural.",
+            service:
+                "Servicio: Microblading & Shading · incluye diseño y retoque.",
+            before: {
+                image: cejasAntes,
+                alt: "Cejas antes del tratamiento de microblading y shading",
+                caption: "Antes",
+            },
+            after: {
+                image: cejasDespues,
+                alt: "Cejas después del tratamiento de microblading y shading",
+                caption: "Después",
+            },
+        },
+        {
+            badge: "Pestañas",
+            badgeClass: "bg-tertiary-fixed text-on-tertiary-fixed",
+            title: "Extensiones de Pestañas",
+            description:
+                "Efectos clásicos, volumen egipcio, hawaiano o wispy para una mirada más definida y expresiva.",
+            service:
+                "Servicio: Extensiones de Pestañas · retoque cada 2-3 semanas.",
+            before: {
+                image: pestanasAntes,
+                alt: "Mirada antes de las extensiones de pestañas",
+                caption: "Antes",
+            },
+            after: {
+                image: pestanasDespues,
+                alt: "Mirada después de las extensiones de pestañas",
+                caption: "Después",
+            },
+        },
+        {
+            badge: "Peptonas",
+            badgeClass: "bg-secondary-container text-on-secondary-container",
+            title: "Mesoterapia & Peptonas en Glúteos",
+            description:
+                "Protocolo de microinyecciones para tonificar, mejorar la firmeza y realzar la forma de los glúteos.",
+            service:
+                "Servicio: Mesoterapia & Peptonas en Glúteos · previa evaluación.",
+            before: {
+                image: peptonasAntes,
+                alt: "Glúteos antes del tratamiento de peptonas",
+                caption: "Antes",
+            },
+            after: {
+                image: peptonasDespues,
+                alt: "Glúteos después del tratamiento de peptonas",
+                caption: "Después",
+            },
+        },
+        {
+            badge: "Estilismo",
+            badgeClass: "bg-primary-fixed text-on-primary-fixed",
+            title: "Maquillaje, Peinado & Estilismo",
+            description:
+                "Look completo para tu día a día o evento: maquillaje social, peinado y asesoría de imagen a domicilio.",
+            service:
+                "Servicio: Estilismo Integral · corte, peinado, maquillaje y uñas.",
+            before: {
+                image: estilismoAntes,
+                alt: "Maquillaje antes del servicio de estilismo",
+                caption: "Antes",
+            },
+            after: {
+                image: estilismoDespues,
+                alt: "Maquillaje después del servicio de estilismo",
+                caption: "Después",
+            },
+        },
+    ],
+    credits: {
+        title: "Créditos de imágenes",
+        note: "Algunas imágenes de referencia provienen de Wikimedia Commons y se usan bajo licencia Creative Commons:",
+        items: [
+            {
+                label: "Cejas antes/después",
+                author: "Mylash-serum",
+                href: "https://commons.wikimedia.org/wiki/File:EN-before-after-Eyebrow-Enhancing-Serum.jpg",
+                license: "CC BY-SA 4.0",
+                licenseHref: "https://creativecommons.org/licenses/by-sa/4.0/",
+            },
+            {
+                label: "Pestañas después",
+                author: "Namee Park",
+                href: "https://commons.wikimedia.org/wiki/File:Namee_Park_-_eyelash_extensions_2.png",
+                license: "CC BY 3.0",
+                licenseHref: "https://creativecommons.org/licenses/by/3.0/",
+            },
+            {
+                label: "Maquillaje antes/después",
+                author: "Ohmargieg",
+                href: "https://commons.wikimedia.org/wiki/File:Composite_permanent_makeup.jpg",
+                license: "CC BY 3.0",
+                licenseHref: "https://creativecommons.org/licenses/by/3.0/",
+            },
+        ],
+        footnote:
+            "El resto de las imágenes son de Burst/Shopify o material de referencia del proyecto.",
     },
-    {
-      badge: "Pestañas",
-      badgeClass: "bg-tertiary-fixed text-on-tertiary-fixed",
-      title: "Extensiones de Pestañas",
-      description:
-        "Efectos clásicos, volumen egipcio, hawaiano o wispy para una mirada más definida y expresiva.",
-      service: "Servicio: Extensiones de Pestañas · retoque cada 2-3 semanas.",
-      before: {
-        image: placeholderAntes,
-        alt: "Imagen referencial de pestañas antes de las extensiones",
-        caption: "Antes",
-      },
-      after: {
-        image: placeholderDespues,
-        alt: "Imagen referencial de pestañas después de las extensiones",
-        caption: "Después",
-      },
-    },
-    {
-      badge: "Piel & Glow",
-      badgeClass: "bg-secondary-container text-on-secondary-container",
-      title: "Limpieza Facial + Pink Glow",
-      description:
-        "Limpieza profunda y masoterapia facial para descongestionar, hidratar y devolver luminosidad.",
-      service: "Servicio: Limpieza Facial Profunda + Pink Glow & Masoterapia Facial.",
-      before: {
-        image: placeholderAntes,
-        alt: "Imagen referencial de una piel antes de la limpieza facial y el Pink Glow",
-        caption: "Antes",
-      },
-      after: {
-        image: placeholderDespues,
-        alt: "Imagen referencial de una piel después de la limpieza facial y el Pink Glow",
-        caption: "Después",
-      },
-    },
-    {
-      badge: "Estilismo",
-      badgeClass: "bg-primary-fixed text-on-primary-fixed",
-      title: "Maquillaje, Peinado & Estilismo",
-      description:
-        "Look completo para tu día a día o evento: maquillaje social, peinado y asesoría de imagen a domicilio.",
-      service: "Servicio: Estilismo Integral · corte, peinado, maquillaje y uñas.",
-      before: {
-        image: placeholderAntes,
-        alt: "Imagen referencial de un look antes del servicio de estilismo",
-        caption: "Antes",
-      },
-      after: {
-        image: placeholderDespues,
-        alt: "Imagen referencial de un look después del servicio de estilismo",
-        caption: "Después",
-      },
-    },
-  ],
 };
 ---
 
 <section id="casos" class="section-shell bg-surface-container-low">
-  <div class="container-page">
-    <div class="mb-space-xl grid grid-cols-1 items-end gap-gutter lg:grid-cols-12">
-      <div class="lg:col-span-7">
-        <span class="eyebrow">{content.eyebrow}</span>
-        <h2 class="section-title mt-space-xs">{content.title}</h2>
-        <p class="mt-space-xs font-body-lg text-body-lg text-on-surface-variant">{content.description}</p>
-      </div>
-      <div class="grid grid-cols-3 gap-space-xs rounded-xl bg-surface-container-lowest p-space-md shadow-card lg:col-span-5">
-        {
-          content.metrics.map((metric) => (
-            <div class="flex flex-col text-center">
-              <span class={`font-headline-md text-headline-md font-bold ${metric.color}`}>{metric.value}</span>
-              <span class="font-body-sm text-[12px] leading-tight text-on-surface-variant">{metric.label}</span>
+    <div class="container-page">
+        <div class="mb-space-xl grid grid-cols-1 items-end gap-gutter lg:grid-cols-12">
+            <div class="lg:col-span-7">
+                <span class="eyebrow">{content.eyebrow}</span>
+                <h2 class="section-title mt-space-xs">{content.title}</h2>
+                <p class="mt-space-xs font-body-lg text-body-lg text-on-surface-variant">
+                    {content.description}
+                </p>
             </div>
-          ))
-        }
-      </div>
-    </div>
+            <div class="grid grid-cols-3 gap-space-xs rounded-xl bg-surface-container-lowest p-space-md shadow-card lg:col-span-5">
+                {content.metrics.map((metric) => (
+                    <div class="flex flex-col text-center">
+                        <span
+                            class={`font-headline-md text-headline-md font-bold ${metric.color}`}
+                        >
+                            {metric.value}
+                        </span>
+                        <span class="font-body-sm text-[12px] leading-tight text-on-surface-variant">
+                            {metric.label}
+                        </span>
+                    </div>
+                ))}
+            </div>
+        </div>
 
-    <div class="grid grid-cols-1 gap-gutter lg:grid-cols-2">
-      {
-        content.results.map((item) => (
-          <article class="flex flex-col justify-between rounded-xl border border-outline-variant/20 bg-surface-container-lowest p-space-lg shadow-card">
-            <div>
-              <div class="mb-space-md flex flex-wrap items-center justify-between gap-space-sm">
-                <span class={`rounded px-2.5 py-1 font-label-sm text-label-sm uppercase tracking-wider ${item.badgeClass}`}>
-                  {item.badge}
-                </span>
-              </div>
-              <h3 class="mb-space-xs font-headline-sm text-headline-sm text-on-surface">{item.title}</h3>
-              <p class="mb-space-md font-body-sm text-body-sm text-on-surface-variant">{item.description}</p>
-            </div>
+        <div class="grid grid-cols-1 gap-gutter lg:grid-cols-2">
+            {content.results.map((item) => (
+                <article class="flex flex-col justify-between rounded-xl border border-outline-variant/20 bg-surface-container-lowest p-space-lg shadow-card">
+                    <div>
+                        <div class="mb-space-md flex flex-wrap items-center justify-between gap-space-sm">
+                            <span
+                                class={`rounded px-2.5 py-1 font-label-sm text-label-sm uppercase tracking-wider ${item.badgeClass}`}
+                            >
+                                {item.badge}
+                            </span>
+                        </div>
+                        <h3 class="mb-space-xs font-headline-sm text-headline-sm text-on-surface">
+                            {item.title}
+                        </h3>
+                        <p class="mb-space-md font-body-sm text-body-sm text-on-surface-variant">
+                            {item.description}
+                        </p>
+                    </div>
 
-            <div>
-              <div class="grid grid-cols-2 gap-space-sm">
-                <div class="relative aspect-4/5 overflow-hidden rounded-lg bg-surface-container sm:aspect-square">
-                  <Image
-                    src={item.before.image}
-                    alt={item.before.alt}
-                    widths={[320, 480]}
-                    sizes="(min-width: 1024px) 25vw, 50vw"
-                    loading="lazy"
-                    decoding="async"
-                    class="size-full object-cover"
-                  />
-                  <span class="absolute bottom-2 left-2 rounded bg-on-surface/80 px-2 py-0.5 font-label-sm text-[10px] uppercase tracking-wider text-surface backdrop-blur-sm">
-                    {item.before.caption}
-                  </span>
-                </div>
-                <div class="relative aspect-4/5 overflow-hidden rounded-lg bg-surface-container sm:aspect-square">
-                  <Image
-                    src={item.after.image}
-                    alt={item.after.alt}
-                    widths={[320, 480]}
-                    sizes="(min-width: 1024px) 25vw, 50vw"
-                    loading="lazy"
-                    decoding="async"
-                    class="size-full object-cover"
-                  />
-                  <span class="absolute bottom-2 left-2 rounded bg-primary px-2 py-0.5 font-label-sm text-[10px] uppercase tracking-wider text-on-primary">
-                    {item.after.caption}
-                  </span>
-                </div>
-              </div>
-              <p class="mt-space-sm font-body-sm text-body-sm italic text-on-surface-variant">{item.service}</p>
-            </div>
-          </article>
-        ))
-      }
+                    <div>
+                        <div class="grid grid-cols-2 gap-space-sm">
+                            <div class="relative aspect-4/5 overflow-hidden rounded-lg bg-surface-container sm:aspect-square">
+                                <Image
+                                    src={item.before.image}
+                                    alt={item.before.alt}
+                                    widths={[320, 480]}
+                                    sizes="(min-width: 1024px) 25vw, 50vw"
+                                    loading="lazy"
+                                    decoding="async"
+                                    class="size-full object-cover"
+                                />
+                                <span class="absolute bottom-2 left-2 rounded bg-on-surface/80 px-2 py-0.5 font-label-sm text-[10px] uppercase tracking-wider text-surface backdrop-blur-sm">
+                                    {item.before.caption}
+                                </span>
+                            </div>
+                            <div class="relative aspect-4/5 overflow-hidden rounded-lg bg-surface-container sm:aspect-square">
+                                <Image
+                                    src={item.after.image}
+                                    alt={item.after.alt}
+                                    widths={[320, 480]}
+                                    sizes="(min-width: 1024px) 25vw, 50vw"
+                                    loading="lazy"
+                                    decoding="async"
+                                    class="size-full object-cover"
+                                />
+                                <span class="absolute bottom-2 left-2 rounded bg-primary px-2 py-0.5 font-label-sm text-[10px] uppercase tracking-wider text-on-primary">
+                                    {item.after.caption}
+                                </span>
+                            </div>
+                        </div>
+                        <p class="mt-space-sm font-body-sm text-body-sm italic text-on-surface-variant">
+                            {item.service}
+                        </p>
+                    </div>
+                </article>
+            ))}
+        </div>
     </div>
-  </div>
 </section>
