@@ -1,6 +1,20 @@
 import type { ImageMetadata } from "astro";
 
-import placeholderImage from "../assets/images/services/placeholder.jpg";
+import limpiezaFacialProfunda from "../assets/images/services/limpieza-facial-profunda.webp";
+import pdrnSalmon from "../assets/images/services/pdrn-salmon.webp";
+import pinkGlow from "../assets/images/services/pink-glow-mesoterapia-facial.webp";
+import botox from "../assets/images/services/botox.jpg";
+import acidoHialuronico from "../assets/images/services/acido-hialuronico.jpg";
+import bolsasOjeras from "../assets/images/services/bolsas-ojeras.jpg";
+import prp from "../assets/images/services/prp.jpg";
+import masajeRelajante from "../assets/images/services/masaje-relajante.jpg";
+import reductorMedidas from "../assets/images/services/reductor-medidas.jpg";
+import hidrolipoclasia from "../assets/images/services/hidrolipoclasia.jpg";
+import mesoterapiaPeptonas from "../assets/images/services/mesoterapia-peptonas.jpg";
+import microbladingShading from "../assets/images/services/microblading-shading.jpg";
+import laminadoCejas from "../assets/images/services/laminado-cejas.jpg";
+import extensionesPestanas from "../assets/images/services/extensiones-pestanas.jpg";
+import estilismoIntegral from "../assets/images/services/estilismo-integral.webp";
 
 export type ServiceBadgeTone = "secondary" | "primary" | "tertiary";
 
@@ -36,7 +50,7 @@ export const services: Service[] = [
   {
     id: "limpieza-facial-profunda",
     name: "Limpieza Facial Profunda",
-    price: "Desde S/ 120",
+    price: "Desde S/ 100",
     duration: "75 minutos",
     category: "Higiene & Glow",
     shortCategory: "Limpieza & Glow",
@@ -47,13 +61,13 @@ export const services: Service[] = [
     description:
       "Protocolo personalizado para descongestionar poros, retirar impurezas y renovar la superficie cutánea. Incluye doble limpieza, extracción, alta frecuencia, mascarilla calmante y protección solar.",
     tags: ["Limpieza profunda", "Poros", "Hidratación"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: limpiezaFacialProfunda,
+    imageAlt: "Aplicación de mascarilla facial durante una limpieza profunda",
   },
   {
     id: "prdn-salmon",
     name: "PRDN de Salmón",
-    price: "Desde S/ 450",
+    price: "Desde S/ 130",
     duration: "60 minutos",
     category: "Bioestimulación & Reparación",
     shortCategory: "PRDN Salmón",
@@ -64,8 +78,8 @@ export const services: Service[] = [
     description:
       "Aplicación de polinucleótidos que ayudan a mejorar la hidratación profunda, la textura y la firmeza de la piel. Se adapta a rostro, cuello y contorno de ojos según valoración profesional.",
     tags: ["PRDN", "Regeneración", "Elasticidad"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: pdrnSalmon,
+    imageAlt: "Aplicación de PRDN de salmón con microagujas en el rostro",
   },
   {
     id: "pink-glow",
@@ -81,13 +95,13 @@ export const services: Service[] = [
     description:
       "Protocolo sensorial que combina masaje facial, vitaminas y activos hidratantes para mejorar la textura, oxigenar los tejidos y devolver un aspecto fresco y descansado.",
     tags: ["Glow", "Vitamina C", "Masoterapia"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: pinkGlow,
+    imageAlt: "Tratamiento facial Pink Glow con aplicación de activos",
   },
   {
     id: "toxina-botulinica",
     name: "Toxina Botulínica (Botox)",
-    price: "Desde S/ 650",
+    price: "Desde S/ 500",
     duration: "40 minutos",
     category: "Expresión & Firmeza",
     shortCategory: "Botox",
@@ -98,8 +112,8 @@ export const services: Service[] = [
     description:
       "Aplicación personalizada según la anatomía y los objetivos de cada paciente. Los resultados son temporales y suelen mantenerse entre 3 y 6 meses; requiere valoración profesional previa.",
     tags: ["Líneas finas", "Mirada", "Previa evaluación"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: botox,
+    imageAlt: "Profesional con guantes sosteniendo una jeringa para un tratamiento facial",
   },
   {
     id: "acido-hialuronico",
@@ -115,13 +129,13 @@ export const services: Service[] = [
     description:
       "Relleno dérmico que ayuda a restaurar volumen, hidratar zonas específicas y suavizar surcos. La zona, la técnica y la cantidad se definen en una evaluación previa.",
     tags: ["Volumen", "Labios", "Previa evaluación"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: acidoHialuronico,
+    imageAlt: "Detalle de labios durante un tratamiento estético de ácido hialurónico",
   },
   {
     id: "bolsas-ojeras",
     name: "Tratamiento de Bolsas & Ojeras",
-    price: "Desde S/ 380",
+    price: "Desde S/ 100",
     duration: "45 minutos",
     category: "Mirada Descansada",
     shortCategory: "Bolsas & Ojeras",
@@ -132,13 +146,13 @@ export const services: Service[] = [
     description:
       "Combina descongestión, hidratación y estímulo de colágeno en el contorno de ojos. No sustituye una valoración médica cuando existe una causa estructural o de salud.",
     tags: ["Ojeras", "Descongestión", "Contorno de ojos"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: bolsasOjeras,
+    imageAlt: "Mujer con parches bajo los ojos durante un tratamiento de bolsas y ojeras",
   },
   {
     id: "plasma-rico-plaquetas",
     name: "Plasma Rico en Plaquetas (PRP)",
-    price: "Desde S/ 450",
+    price: "Desde S/ 120",
     duration: "60 minutos",
     category: "Regeneración Natural",
     shortCategory: "PRP",
@@ -149,13 +163,13 @@ export const services: Service[] = [
     description:
       "Se obtiene una muestra de sangre, se procesa para concentrar las plaquetas y se aplica en la piel mediante microinyecciones. Los resultados son progresivos y requieren un plan de sesiones.",
     tags: ["PRP", "Colágeno", "Firmeza"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: prp,
+    imageAlt: "Tubo de muestra y guantes para un tratamiento de plasma rico en plaquetas",
   },
   {
     id: "masaje-relajante",
     name: "Masaje Relajante",
-    price: "Desde S/ 90",
+    price: "Desde S/ 70",
     duration: "60 minutos",
     category: "Bienestar & Descanso",
     shortCategory: "Masaje",
@@ -166,13 +180,13 @@ export const services: Service[] = [
     description:
       "Técnica relajante adaptada a tu nivel de tensión y zonas de mayor molestia. Favorece el drenaje, la oxigenación de los tejidos y el descanso profundo.",
     tags: ["Relajación", "Drenaje", "Estrés"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: masajeRelajante,
+    imageAlt: "Masaje relajante en la espalda en un ambiente de spa",
   },
   {
     id: "reductor-medidas",
     name: "Tratamiento Reductor de Medidas",
-    price: "Desde S/ 150",
+    price: "Desde S/ 60",
     duration: "75 minutos",
     category: "Moldeado Corporal",
     shortCategory: "Reductor",
@@ -183,13 +197,13 @@ export const services: Service[] = [
     description:
       "Combina maniobras manuales y activos que ayudan a movilizar grasa localizada, mejorar la circulación y reducir la retención de líquidos. Se recomienda un plan de sesiones y hábitos saludables.",
     tags: ["Reductor", "Contorno", "Drenaje"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: reductorMedidas,
+    imageAlt: "Masaje corporal profesional para un tratamiento reductor de medidas",
   },
   {
     id: "hidrolipoclasia",
     name: "Hidrolipoclasia",
-    price: "Desde S/ 250",
+    price: "Desde S/ 170",
     duration: "60 minutos",
     category: "Grasa Localizada",
     shortCategory: "Hidrolipoclasia",
@@ -200,8 +214,8 @@ export const services: Service[] = [
     description:
       "Se infiltra una solución fisiológica con activos y se aplica ultrasonido para ayudar a romper las células grasas, que luego se eliminan por el sistema linfático. Requiere valoración previa y varias sesiones.",
     tags: ["Lipólisis", "Abdomen", "Previa evaluación"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: hidrolipoclasia,
+    imageAlt: "Masaje corporal en camilla durante un tratamiento de contorno corporal",
   },
   {
     id: "mesoterapia-peptonas",
@@ -217,8 +231,8 @@ export const services: Service[] = [
     description:
       "La mesoterapia aplica cócteles personalizados de vitaminas, enzimas y activos lipolíticos. El protocolo de peptonas en glúteos busca tonificar y mejorar la apariencia de la zona.",
     tags: ["Mesoterapia", "Peptonas", "Glúteos"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: mesoterapiaPeptonas,
+    imageAlt: "Profesional con guantes sosteniendo instrumental estéril para un tratamiento corporal",
   },
   {
     id: "microblading-shading",
@@ -234,8 +248,8 @@ export const services: Service[] = [
     description:
       "Incluye diseño previo según las proporciones del rostro, aplicación de pigmento y recomendaciones de cuidado. Se recomienda un retoque y el resultado suele durar entre 12 y 18 meses.",
     tags: ["Microblading", "Shading", "Cejas"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: microbladingShading,
+    imageAlt: "Detalle de cejas durante un tratamiento de microblading y shading",
   },
   {
     id: "laminado-cejas",
@@ -251,13 +265,13 @@ export const services: Service[] = [
     description:
       "El laminado alinea y fija el vello en la dirección deseada, mientras la pigmentación aporta definición y densidad visual. El efecto suele mantenerse entre 4 y 6 semanas.",
     tags: ["Laminado", "Pigmentación", "Visagismo"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: laminadoCejas,
+    imageAlt: "Cepillado y diseño de cejas durante un laminado",
   },
   {
     id: "extensiones-pestanas",
     name: "Extensiones de Pestañas",
-    price: "Desde S/ 150",
+    price: "Desde S/ 60",
     duration: "120 minutos",
     category: "Mirada de Impacto",
     shortCategory: "Pestañas",
@@ -268,8 +282,8 @@ export const services: Service[] = [
     description:
       "Se seleccionan las fibras y el efecto según la forma de tus ojos y el estilo que buscas. Incluye recomendaciones de cuidado y retoques periódicos para mantener el resultado.",
     tags: ["Clásicas", "Volumen", "Wispy"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: extensionesPestanas,
+    imageAlt: "Aplicación de máscara y cuidado de pestañas",
   },
   {
     id: "estilismo-integral",
@@ -285,8 +299,8 @@ export const services: Service[] = [
     description:
       "Un servicio integral para complementar tu look con cortes, peinados, maquillaje social o profesional, manicure y pedicure. Se coordina según el evento, el tiempo y el estilo que buscas.",
     tags: ["Cortes", "Maquillaje", "Manicure"],
-    image: placeholderImage,
-    imageAlt: "Imagen de referencia de un tratamiento de cosmiatría y estilismo",
+    image: estilismoIntegral,
+    imageAlt: "Maquillaje profesional aplicado por una estilista",
   },
 ];
 
